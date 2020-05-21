@@ -45,6 +45,37 @@ console.log(response);
 "Payfast API"
 ```
 
+### Validate Sender
+
+```js
+const payfast = require('@payfast/core');
+
+const response = await payfast.validate.sender(req.headers.referer); // 'www.payfast.co.za'
+
+console.log(response);
+
+{
+  "valid": true
+}
+```
+
+### Validate Request
+
+```js
+const payfast = require('@payfast/core');
+
+const response = await payfast.validate.request({
+  "m_payment_id":  "xxx",
+  "pf_payment_id": "xxx"
+});
+
+console.log(response);
+
+{
+  "valid": true
+}
+```
+
 ### Get All Transaction History
 
 ```js

@@ -1,14 +1,23 @@
 {
   "name": "@payfast/core",
-  "version": "0.0.8",
+  "version": "0.1.1",
   "description": "Easy to use node library to intergrate into payfast",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/payfast-api/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/payfast-api/core/issues"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
+  "homepage": "https://github.com/payfast-api/core",
   "keywrods": [
+    "api",
     "payfast",
-    "node-payfast"
+    "node"
   ],
   "author": "claytoncc <clayton.constant@gmail.com> (http://claytoncc.io)",
   "license": "MIT",

@@ -1,5 +1,6 @@
 const fetch             = require('node-fetch');
 exports.tools           = require('./tools');
+exports.validate        = require('./validate');
 exports.transactions    = require('./transactions');
 exports.subscriptions   = require('./subscriptions');
 

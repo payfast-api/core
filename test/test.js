@@ -31,6 +31,48 @@ describe('Payfast API', function() {
     });
 });
 
+describe('Validate', function() {
+    it('Validate Sender', function(done) {
+        this.timeout(5000);
+
+        api.validate.sender()
+        .then(result => {
+            try {
+                result.should.have.property('valid');
+                done();
+            } catch(e) {
+                done(e);
+            };
+        }, err => {
+            try {
+                done(err);
+            } catch(e) {
+                done(e);
+            };
+        });
+    });
+
+    it('Validate Request', function(done) {
+        this.timeout(5000);
+
+        api.validate.request()
+        .then(result => {
+            try {
+                result.should.have.property('valid');
+                done();
+            } catch(e) {
+                done(e);
+            };
+        }, err => {
+            try {
+                done(err);
+            } catch(e) {
+                done(e);
+            };
+        });
+    });
+});
+
 describe('Transactions', function() {
     it('Get All Transaction History', function(done) {
         this.timeout(5000);
@@ -316,6 +358,29 @@ var api = {
         deferred.resolve(response);
 
         return deferred.promise;
+    },
+    validate: {
+        sender: async () => {
+            var deferred = Q.defer();
+
+            const response = await library.validate.sender('www.payfast.co.za');
+
+            deferred.resolve(response);
+
+            return deferred.promise;
+        },
+        request: async () => {
+            var deferred = Q.defer();
+
+            const response = await library.validate.url({
+                'm_payment_id':  'xxx',
+                'pf_payment_id': 'xxx'
+            });
+
+            deferred.resolve(response);
+
+            return deferred.promise;
+        }
     },
     transactions: {
         daily: async () => {
