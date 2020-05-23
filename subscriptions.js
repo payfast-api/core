@@ -24,7 +24,10 @@ exports.fetch = async (params) => {
         'method':   'GET',
         'headers':  parsed.headers
     });
-    return await response.json();
+    
+    const result = await response.json();
+    
+    return result.data.response;
 };
 
 exports.pause = async (params) => {

@@ -254,6 +254,15 @@ describe('Subscriptions', function() {
         api.subscriptions.fetch()
         .then(result => {
             try {
+                result.should.have.property('token');
+                result.should.have.property('amount');
+                result.should.have.property('cycles');
+                result.should.have.property('status');
+                result.should.have.property('run_date');
+                result.should.have.property('frequency');
+                result.should.have.property('status_text');
+                result.should.have.property('status_reason');
+                result.should.have.property('cycles_complete');
                 done();
             } catch(e) {
                 done(e);
@@ -456,7 +465,7 @@ var api = {
                 'passphrase':   config.passphrase,
                 'merchant-id':  config.merchantId
             });
-
+            
             deferred.resolve(response);
 
             return deferred.promise;

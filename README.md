@@ -279,6 +279,8 @@ console.log(response);
   "status":           1,
   "run_date":         "2020-01-01",
   "frequency":        3,
+  "status_text":      "",
+  "status_reason":    "",
   "cycles_complete":  2
 }
 
