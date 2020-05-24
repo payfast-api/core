@@ -21,7 +21,10 @@ exports.sender = async (referer) => {
 };
 
 exports.request = async (payload) => {
-    const parsed = await tools.signature({}, payload);
+    const parsed = await tools.signature({}, {
+        'm_payment_id':     payload.m_payment_id,
+        'pf_payment_id':    payload.pf_payment_id
+    });
 
     const response  = await fetch('https://www.payfast.co.za/eng/query/validate', {
         'headers': {
