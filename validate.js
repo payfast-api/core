@@ -21,26 +21,23 @@ exports.sender = async (referer) => {
 };
 
 exports.request = async (payload) => {
-    const parsed            = await tools.signature({}, payload);
-    parsed.body.signature   = parsed.headers.signature;
-
     const response  = await fetch('https://www.payfast.co.za/eng/query/validate', {
         'headers': {
             'accept':       '*/*',
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
-        'form':     parsed.body,
+        'form':     payload,
         'method':   "POST"
     });
 
     const result = await response.text();
 
     if (result == 'VALID') {
-        return {
+        return await {
             'valid': true
         };
     } else {
-        return {
+        return await {
             'valid': false
         };
     };

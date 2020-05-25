@@ -63,4 +63,4 @@ exports.csvtojson = async (csv) => {
     });
 
     return await data;
-}
+};

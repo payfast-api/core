@@ -1,6 +1,6 @@
 {
   "name": "@payfast/core",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Easy to use node library to intergrate into payfast",
   "repository": {
     "type": "git",
