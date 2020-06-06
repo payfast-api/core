@@ -65,8 +65,31 @@ console.log(response);
 const payfast = require('@payfast/core');
 
 const response = await payfast.validate.request({
-  "m_payment_id":  "xxx",
-  "pf_payment_id": "xxx"
+  "token":              "xxx",
+  "name_last":          "",
+  "item_name":          "xxx",
+  "signature":          "xxx",
+  "amount_fee":         "0.00",
+  "amount_net":         "0.00",
+  "name_first":         "",
+  "custom_str1":        "",
+  "custom_str2":        "",
+  "custom_str3":        "",
+  "custom_str4":        "",
+  "custom_str5":        "",
+  "custom_int1":        "",
+  "custom_int2":        "",
+  "custom_int3":        "",
+  "custom_int4":        "",
+  "custom_int5":        "",
+  "merchant_id":        "xxx",
+  "m_payment_id":       "xxx",
+  "billing_date":       "2020-01-01",
+  "amount_gross":       "0.00",
+  "pf_payment_id":      "xxx",
+  "email_address":      "xxx@xxx.co.za",
+  "payment_status":     "COMPLETE",
+  "item_description":   ""
 });
 
 console.log(response);
