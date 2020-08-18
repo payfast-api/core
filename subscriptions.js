@@ -121,7 +121,7 @@ exports.update = async (params) => {
 
     const parsed    = await tools.signature(headers, body);
     parsed.body     = await tools.urlencode(parsed.body);
-    const response  = await fetch('https://api.payfast.co.za/subscriptions/' + token + '/pause', {
+    const response  = await fetch('https://api.payfast.co.za/subscriptions/' + token + '/update', {
         'body':     parsed.body,
         'method':   'PATCH',
         'headers':  parsed.headers
