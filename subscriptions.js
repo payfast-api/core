@@ -98,7 +98,7 @@ exports.update = async (params) => {
         body.cycles = params.cycles;
     };
     if (typeof (params.amount) != "undefined") {
-        body.amount = params.amount;
+        body.amount = params.amount * 100;
     };
     if (typeof (params.run_date) != "undefined") {
         body.run_date = params.run_date;
