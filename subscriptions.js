@@ -1,5 +1,6 @@
 const tools = require('./tools');
 const fetch = require('node-fetch');
+const FormParams = require('url').URLSearchParams;
 
 exports.fetch = async (params) => {
     var token = params.token;
@@ -118,14 +119,17 @@ exports.update = async (params) => {
     if (typeof (params['merchant-id']) != "undefined") {
         headers['merchant-id'] = params['merchant-id'];
     };
+    const form = new FormParams();
+    Object.keys(body).sort().map(key => {
+        form.append(key, body[key]);
+    });
 
     const parsed = await tools.signature(headers, body);
     const response = await fetch('https://api.payfast.co.za/subscriptions/' + token + '/update', {
-        'body': JSON.stringify(parsed.body),
+        'body': form,
         'method': 'PATCH',
         'headers': parsed.headers
     });
-
     return await response.json();
 };
 
